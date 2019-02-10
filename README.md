@@ -2,10 +2,15 @@
 Ballzy is a pong-like game for the NES. It's written in 6502-assembler.
 
 <h4>Installing & Running</h4>
-Installing the NES-emulator on Ubuntu linux:
+These instructions should hopefully work for any newer Ubuntu linux setup.
+
+Install the 'fceux' NES emulator:
 <pre><code>sudo apt install fceux</code></pre>
 
-Cloning the repo and running:
+Install the cc65 toolset from here:
+<pre><code>https://cc65.github.io/</code></pre>
+
+Clone the repo and build the project:
 <pre><code>git clone https://github.com/skrotnisse/ballzy
 cd ballzy
 make</code></pre>
