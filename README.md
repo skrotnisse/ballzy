@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="/screenshots/screenshot_1.png" width="450" title="Main menu">
+</p>
+
 <h3>Ballzy</h3>
 Ballzy is a pong-like game for the NES. It's written in 6502-assembler.
 
