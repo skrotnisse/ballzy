@@ -24,6 +24,8 @@
 .import obj_pad2_update
 .import obj_pad2_draw
 
+.import FamiToneMusicPlay
+
 .importzp timer1
 .importzp nmi_cnt
 
@@ -392,6 +394,10 @@ loop:
 .endproc
 
 .proc main_init
+  ; Play some intro music.
+  lda #0
+  jsr FamiToneMusicPlay
+
   ; Load default "base" palette.
   jsr ppu_load_default_palette
 
@@ -757,6 +763,10 @@ reset_all:
 .endproc
 
 .proc tr_menu_to_ready
+  ; Play some in-game music.
+  lda #1
+  jsr FamiToneMusicPlay
+
   ; Reset scroll position
   lda #0
   sta screen_y

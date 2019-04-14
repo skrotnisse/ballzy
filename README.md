@@ -22,4 +22,4 @@ make</code></pre>
 Running make will both build and run the game at the moment.
 
 <h4>TODOs</h4>
-The code is in heavy need of refactoring. There's lots of duplicate code and stuff that should be sorted out. I also plan to add more features and content, such as music/soundfx.
+The code is in heavy need of refactoring. There's lots of duplicate code and stuff that should be sorted out. I also plan to add/rework features and content.

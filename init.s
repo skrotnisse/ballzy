@@ -6,6 +6,8 @@
 .export nmi_cnt
 .export timer1
 
+.export FamiToneMusicPlay
+
 ; http://nesdev.com/neshdr20.txt  
 .segment "INESHDR"
   .byte "NES", $1A             
@@ -28,17 +30,19 @@
   .addr nmi_handler, reset_handler, irqbrk_handler
 
 .segment "CODE"
+  .include "famitone2.s"
 
 .proc nmi_handler
-  inc nmi_cnt
+  jsr FamiToneUpdate
 
+  inc nmi_cnt
   ; Decrement timer1
   lda timer1
   cmp #0
   beq :+
   dec timer1
-
 : rti
+
 .endproc
   
 .proc irqbrk_handler
@@ -96,6 +100,12 @@
 : bit PPUSTATUS
   bpl :-
 
+  ; Initialize FamiTone2.
+  lda #0
+  ldx #<music_data
+  ldy #>music_data
+  jsr FamiToneInit
+
   ; ============================================
   ; Initialize main game logic
   ; ============================================
@@ -107,4 +117,11 @@ forever:
   jmp forever
 
 .endproc
+
+.segment "RODATA"
+music_data:
+  .include "ballzytunes.s"
+
+.segment "DMC"
+  .incbin "obj/ballzytunes.dmc"
 

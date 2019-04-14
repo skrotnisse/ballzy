@@ -52,3 +52,16 @@ APU_FRAMECNT  = $4017
 SCREEN_XSIZE      = 256
 SCREEN_YSIZE      = 240
 
+; FamiTone2 settings
+FT_BASE_ADR     = $0100 ; Page in the RAM used for FT2 variables, should be $xx00
+FT_TEMP         = $E0   ; 3 bytes in zeropage used by the library as a scratchpad
+FT_DPCM_OFF     = $C000 ; DPCM offset, $C000..$FFC0, 64-byte steps (DMC must be stored at >= $C000)
+FT_SFX_STREAMS  = 4     ; Number of sound effects played at once, 1..4
+
+FT_DPCM_ENABLE  = 1     ; Enable/disable DMC mode
+FT_SFX_ENABLE   = 0     ; Exclude/include sound effects code
+FT_THREAD       = 1     ; Define if calling sound effects from the same thread as the sound update call
+
+FT_PAL_SUPPORT  = 1     ; Enable/disable PAL support
+FT_NTSC_SUPPORT = 1     ; Enable/disable NTSC support
+
